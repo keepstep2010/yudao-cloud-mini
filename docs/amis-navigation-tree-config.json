@@ -1,0 +1,676 @@
+{
+  "type": "page",
+  "title": "DDD元数据驱动开发平台导航树",
+  "body": [
+    {
+      "type": "flex",
+      "justify": "space-between",
+      "items": [
+        {
+          "type": "title",
+          "title": "DDD元数据驱动开发平台导航树",
+          "level": 2
+        },
+        {
+          "type": "flex",
+          "items": [
+            {
+              "type": "button",
+              "label": "刷新",
+              "icon": "fa fa-refresh",
+              "level": "primary",
+              "onEvent": {
+                "click": {
+                  "actions": [
+                    {
+                      "actionType": "reload",
+                      "target": "navigation-tree"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "button",
+              "label": "展开全部",
+              "icon": "fa fa-expand",
+              "level": "default",
+              "onEvent": {
+                "click": {
+                  "actions": [
+                    {
+                      "actionType": "setValue",
+                      "componentId": "navigation-tree",
+                      "args": {
+                        "value": {
+                          "expandAll": true
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "button",
+              "label": "收起全部",
+              "icon": "fa fa-compress",
+              "level": "default",
+              "onEvent": {
+                "click": {
+                  "actions": [
+                    {
+                      "actionType": "setValue",
+                      "componentId": "navigation-tree",
+                      "args": {
+                        "value": {
+                          "expandAll": false
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flex",
+      "className": "navigation-container",
+      "style": {
+        "height": "calc(100vh - 120px)",
+        "gap": "16px"
+      },
+      "items": [
+        {
+          "type": "container",
+          "className": "navigation-tree-container",
+          "style": {
+            "width": "400px",
+            "border": "1px solid #d9d9d9",
+            "borderRadius": "6px",
+            "backgroundColor": "#ffffff",
+            "overflow": "hidden"
+          },
+          "body": [
+            {
+              "type": "container",
+              "className": "tree-header",
+              "style": {
+                "padding": "12px 16px",
+                "borderBottom": "1px solid #f0f0f0",
+                "backgroundColor": "#fafafa"
+              },
+              "body": [
+                {
+                  "type": "flex",
+                  "justify": "space-between",
+                  "items": [
+                    {
+                      "type": "text",
+                      "text": "导航树",
+                      "style": {
+                        "fontWeight": "600",
+                        "fontSize": "14px",
+                        "color": "#333333"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "label": "搜索",
+                      "icon": "fa fa-search",
+                      "level": "link",
+                      "size": "sm",
+                      "onEvent": {
+                        "click": {
+                          "actions": [
+                            {
+                              "actionType": "toggle",
+                              "target": "search-input"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "input-text",
+                  "name": "searchKeyword",
+                  "id": "search-input",
+                  "placeholder": "搜索节点...",
+                  "clearable": true,
+                  "visible": false,
+                  "onEvent": {
+                    "change": {
+                      "actions": [
+                        {
+                          "actionType": "setValue",
+                          "componentId": "navigation-tree",
+                          "args": {
+                            "value": {
+                              "searchKeyword": "${event.data.value}"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tree",
+              "id": "navigation-tree",
+              "name": "navigationTree",
+              "className": "navigation-tree",
+              "style": {
+                "height": "calc(100vh - 200px)",
+                "overflow": "auto",
+                "padding": "8px"
+              },
+              "data": {
+                "source": "/api/navigation-tree/data",
+                "method": "GET",
+                "data": {
+                  "projectId": "${projectId}",
+                  "domainId": "${domainId}"
+                }
+              },
+              "options": {
+                "multiple": false,
+                "cascade": true,
+                "withChildren": true,
+                "onlyChildren": false,
+                "onlyLeaf": false,
+                "hideRoot": false,
+                "showRoot": true,
+                "showIcon": true,
+                "showLine": true,
+                "expandAll": false,
+                "expandLevel": 2,
+                "searchable": true,
+                "filterable": true,
+                "draggable": false,
+                "selectable": true,
+                "checkable": false,
+                "checkStrictly": false,
+                "defaultExpandAll": false,
+                "defaultExpandedKeys": ["root_ddd_platform", "project_ecommerce"],
+                "defaultSelectedKeys": [],
+                "defaultCheckedKeys": [],
+                "nodeKey": "nodeId",
+                "labelKey": "nodeName",
+                "childrenKey": "children",
+                "iconKey": "nodeIcon",
+                "typeKey": "nodeType",
+                "dataKey": "nodeData",
+                "actionsKey": "actions",
+                "metadataKey": "metadata"
+              },
+              "itemStyle": {
+                "padding": "8px 12px",
+                "margin": "2px 0",
+                "borderRadius": "4px",
+                "transition": "all 0.3s ease",
+                "cursor": "pointer"
+              },
+              "itemHoverStyle": {
+                "backgroundColor": "#f5f5f5"
+              },
+              "itemSelectedStyle": {
+                "backgroundColor": "#e6f7ff",
+                "borderLeft": "3px solid #1890ff"
+              },
+              "itemExpandedStyle": {
+                "backgroundColor": "#f0f9ff"
+              },
+              "itemCollapsedStyle": {
+                "backgroundColor": "#ffffff"
+              },
+              "iconStyle": {
+                "marginRight": "8px",
+                "fontSize": "14px"
+              },
+              "labelStyle": {
+                "fontSize": "13px",
+                "color": "#333333",
+                "fontWeight": "normal"
+              },
+              "typeStyle": {
+                "PLATFORM_ROOT": {
+                  "fontWeight": "bold",
+                  "fontSize": "16px",
+                  "color": "#1890ff"
+                },
+                "PROJECT": {
+                  "fontWeight": "600",
+                  "fontSize": "14px",
+                  "color": "#52c41a"
+                },
+                "PROJECT_METADATA": {
+                  "fontSize": "13px",
+                  "color": "#722ed1"
+                },
+                "PROJECT_DOMAIN": {
+                  "fontSize": "13px",
+                  "color": "#fa541c"
+                },
+                "SUBDOMAIN": {
+                  "fontSize": "12px",
+                  "color": "#13c2c2"
+                },
+                "AGGREGATE": {
+                  "fontSize": "12px",
+                  "color": "#eb2f96"
+                },
+                "AGGREGATE_ROOT": {
+                  "fontSize": "11px",
+                  "color": "#f5222d"
+                },
+                "ENTITY": {
+                  "fontSize": "11px",
+                  "color": "#fa8c16"
+                },
+                "VALUE_OBJECT": {
+                  "fontSize": "11px",
+                  "color": "#52c41a"
+                },
+                "DOMAIN_SERVICE": {
+                  "fontSize": "11px",
+                  "color": "#1890ff"
+                },
+                "DOMAIN_EVENT": {
+                  "fontSize": "11px",
+                  "color": "#722ed1"
+                }
+              },
+              "actions": [
+                {
+                  "type": "button",
+                  "label": "查看详情",
+                  "icon": "fa fa-eye",
+                  "level": "link",
+                  "size": "sm",
+                  "onEvent": {
+                    "click": {
+                      "actions": [
+                        {
+                          "actionType": "dialog",
+                          "dialog": {
+                            "title": "查看详情",
+                            "size": "lg",
+                            "body": {
+                              "type": "form",
+                              "body": [
+                                {
+                                  "type": "static",
+                                  "name": "nodeId",
+                                  "label": "节点ID",
+                                  "value": "${nodeId}"
+                                },
+                                {
+                                  "type": "static",
+                                  "name": "nodeName",
+                                  "label": "节点名称",
+                                  "value": "${nodeName}"
+                                },
+                                {
+                                  "type": "static",
+                                  "name": "nodeType",
+                                  "label": "节点类型",
+                                  "value": "${nodeType}"
+                                },
+                                {
+                                  "type": "static",
+                                  "name": "nodeIcon",
+                                  "label": "节点图标",
+                                  "value": "${nodeIcon}"
+                                },
+                                {
+                                  "type": "json",
+                                  "name": "nodeData",
+                                  "label": "节点数据",
+                                  "value": "${nodeData}"
+                                },
+                                {
+                                  "type": "json",
+                                  "name": "metadata",
+                                  "label": "节点元数据",
+                                  "value": "${metadata}"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "button",
+                  "label": "编辑",
+                  "icon": "fa fa-edit",
+                  "level": "link",
+                  "size": "sm",
+                  "onEvent": {
+                    "click": {
+                      "actions": [
+                        {
+                          "actionType": "dialog",
+                          "dialog": {
+                            "title": "编辑节点",
+                            "size": "lg",
+                            "body": {
+                              "type": "form",
+                              "api": {
+                                "url": "/api/navigation-tree/update",
+                                "method": "PUT",
+                                "data": {
+                                  "nodeId": "${nodeId}",
+                                  "nodeName": "${nodeName}",
+                                  "nodeType": "${nodeType}",
+                                  "nodeIcon": "${nodeIcon}",
+                                  "nodeData": "${nodeData}"
+                                }
+                              },
+                              "body": [
+                                {
+                                  "type": "hidden",
+                                  "name": "nodeId",
+                                  "value": "${nodeId}"
+                                },
+                                {
+                                  "type": "input-text",
+                                  "name": "nodeName",
+                                  "label": "节点名称",
+                                  "value": "${nodeName}",
+                                  "required": true
+                                },
+                                {
+                                  "type": "select",
+                                  "name": "nodeType",
+                                  "label": "节点类型",
+                                  "value": "${nodeType}",
+                                  "options": [
+                                    {"label": "平台根节点", "value": "PLATFORM_ROOT"},
+                                    {"label": "项目", "value": "PROJECT"},
+                                    {"label": "项目元数据", "value": "PROJECT_METADATA"},
+                                    {"label": "项目领域", "value": "PROJECT_DOMAIN"},
+                                    {"label": "子域", "value": "SUBDOMAIN"},
+                                    {"label": "聚合", "value": "AGGREGATE"},
+                                    {"label": "聚合根", "value": "AGGREGATE_ROOT"},
+                                    {"label": "实体", "value": "ENTITY"},
+                                    {"label": "值对象", "value": "VALUE_OBJECT"},
+                                    {"label": "领域服务", "value": "DOMAIN_SERVICE"},
+                                    {"label": "领域事件", "value": "DOMAIN_EVENT"},
+                                    {"label": "通信层", "value": "COMMUNICATION_LAYER"},
+                                    {"label": "界面层", "value": "INTERFACE_LAYER"},
+                                    {"label": "实现映射层", "value": "IMPLEMENTATION_MAPPING_LAYER"},
+                                    {"label": "验证层", "value": "VALIDATION_LAYER"}
+                                  ],
+                                  "required": true
+                                },
+                                {
+                                  "type": "input-text",
+                                  "name": "nodeIcon",
+                                  "label": "节点图标",
+                                  "value": "${nodeIcon}"
+                                },
+                                {
+                                  "type": "json",
+                                  "name": "nodeData",
+                                  "label": "节点数据",
+                                  "value": "${nodeData}"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "button",
+                  "label": "删除",
+                  "icon": "fa fa-trash",
+                  "level": "link",
+                  "size": "sm",
+                  "confirmText": "确定要删除这个节点吗？",
+                  "onEvent": {
+                    "click": {
+                      "actions": [
+                        {
+                          "actionType": "ajax",
+                          "api": {
+                            "url": "/api/navigation-tree/delete",
+                            "method": "DELETE",
+                            "data": {
+                              "nodeId": "${nodeId}"
+                            }
+                          }
+                        },
+                        {
+                          "actionType": "reload",
+                          "target": "navigation-tree"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "button",
+                  "label": "添加子节点",
+                  "icon": "fa fa-plus",
+                  "level": "link",
+                  "size": "sm",
+                  "onEvent": {
+                    "click": {
+                      "actions": [
+                        {
+                          "actionType": "dialog",
+                          "dialog": {
+                            "title": "添加子节点",
+                            "size": "lg",
+                            "body": {
+                              "type": "form",
+                              "api": {
+                                "url": "/api/navigation-tree/add-child",
+                                "method": "POST",
+                                "data": {
+                                  "parentNodeId": "${nodeId}",
+                                  "nodeName": "${nodeName}",
+                                  "nodeType": "${nodeType}",
+                                  "nodeIcon": "${nodeIcon}",
+                                  "nodeData": "${nodeData}"
+                                }
+                              },
+                              "body": [
+                                {
+                                  "type": "hidden",
+                                  "name": "parentNodeId",
+                                  "value": "${nodeId}"
+                                },
+                                {
+                                  "type": "input-text",
+                                  "name": "nodeName",
+                                  "label": "节点名称",
+                                  "required": true
+                                },
+                                {
+                                  "type": "select",
+                                  "name": "nodeType",
+                                  "label": "节点类型",
+                                  "options": [
+                                    {"label": "项目元数据", "value": "PROJECT_METADATA"},
+                                    {"label": "项目领域", "value": "PROJECT_DOMAIN"},
+                                    {"label": "子域", "value": "SUBDOMAIN"},
+                                    {"label": "聚合", "value": "AGGREGATE"},
+                                    {"label": "聚合根", "value": "AGGREGATE_ROOT"},
+                                    {"label": "实体", "value": "ENTITY"},
+                                    {"label": "值对象", "value": "VALUE_OBJECT"},
+                                    {"label": "领域服务", "value": "DOMAIN_SERVICE"},
+                                    {"label": "领域事件", "value": "DOMAIN_EVENT"},
+                                    {"label": "通信层", "value": "COMMUNICATION_LAYER"},
+                                    {"label": "界面层", "value": "INTERFACE_LAYER"},
+                                    {"label": "实现映射层", "value": "IMPLEMENTATION_MAPPING_LAYER"},
+                                    {"label": "验证层", "value": "VALIDATION_LAYER"}
+                                  ],
+                                  "required": true
+                                },
+                                {
+                                  "type": "input-text",
+                                  "name": "nodeIcon",
+                                  "label": "节点图标"
+                                },
+                                {
+                                  "type": "json",
+                                  "name": "nodeData",
+                                  "label": "节点数据"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "onEvent": {
+                "change": {
+                  "actions": [
+                    {
+                      "actionType": "setValue",
+                      "componentId": "selected-node-info",
+                      "args": {
+                        "value": "${event.data.value}"
+                      }
+                    }
+                  ]
+                },
+                "expand": {
+                  "actions": [
+                    {
+                      "actionType": "setValue",
+                      "componentId": "expanded-nodes",
+                      "args": {
+                        "value": "${event.data.expandedKeys}"
+                      }
+                    }
+                  ]
+                },
+                "collapse": {
+                  "actions": [
+                    {
+                      "actionType": "setValue",
+                      "componentId": "expanded-nodes",
+                      "args": {
+                        "value": "${event.data.expandedKeys}"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "container",
+          "className": "node-details-container",
+          "style": {
+            "flex": 1,
+            "border": "1px solid #d9d9d9",
+            "borderRadius": "6px",
+            "backgroundColor": "#ffffff",
+            "overflow": "hidden"
+          },
+          "body": [
+            {
+              "type": "container",
+              "className": "details-header",
+              "style": {
+                "padding": "12px 16px",
+                "borderBottom": "1px solid #f0f0f0",
+                "backgroundColor": "#fafafa"
+              },
+              "body": [
+                {
+                  "type": "text",
+                  "text": "节点详情",
+                  "style": {
+                    "fontWeight": "600",
+                    "fontSize": "14px",
+                    "color": "#333333"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "container",
+              "className": "details-content",
+              "style": {
+                "padding": "16px",
+                "height": "calc(100vh - 200px)",
+                "overflow": "auto"
+              },
+              "body": [
+                {
+                  "type": "form",
+                  "id": "selected-node-info",
+                  "name": "selectedNodeInfo",
+                  "body": [
+                    {
+                      "type": "static",
+                      "name": "nodeId",
+                      "label": "节点ID",
+                      "value": ""
+                    },
+                    {
+                      "type": "static",
+                      "name": "nodeName",
+                      "label": "节点名称",
+                      "value": ""
+                    },
+                    {
+                      "type": "static",
+                      "name": "nodeType",
+                      "label": "节点类型",
+                      "value": ""
+                    },
+                    {
+                      "type": "static",
+                      "name": "nodeIcon",
+                      "label": "节点图标",
+                      "value": ""
+                    },
+                    {
+                      "type": "json",
+                      "name": "nodeData",
+                      "label": "节点数据",
+                      "value": {}
+                    },
+                    {
+                      "type": "json",
+                      "name": "metadata",
+                      "label": "节点元数据",
+                      "value": {}
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "style": {
+    "padding": "16px",
+    "backgroundColor": "#f5f5f5",
+    "minHeight": "100vh"
+  }
+}

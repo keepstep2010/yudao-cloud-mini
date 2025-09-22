@@ -1,0 +1,993 @@
+{
+  "screenMetadata": {
+    "screenId": "screen_navigation_tree_ddd_platform",
+    "screenName": "DDD元数据驱动开发平台导航树",
+    "screenType": "NAVIGATION_TREE",
+    "domainId": "domain_ddd_platform",
+    "boundedContextId": "context_navigation_management"
+  },
+  "navigationTreeConfig": {
+    "treeStructure": {
+      "rootNode": {
+        "nodeId": "root_ddd_platform",
+        "nodeType": "PLATFORM_ROOT",
+        "nodeName": "DDD元数据驱动开发平台",
+        "nodeIcon": "🏗️",
+        "nodeData": {
+          "platformId": "ddd_platform_001",
+          "platformName": "DDD元数据驱动开发平台",
+          "platformVersion": "2.1.0"
+        },
+        "children": [
+          {
+            "nodeId": "project_ecommerce",
+            "nodeType": "PROJECT",
+            "nodeName": "电商平台项目",
+            "nodeIcon": "📁",
+            "nodeData": {
+              "projectId": "project_ecommerce_001",
+              "projectName": "电商平台项目",
+              "projectVersion": "v2.1.0"
+            },
+            "children": [
+              {
+                "nodeId": "project_metadata",
+                "nodeType": "PROJECT_METADATA",
+                "nodeName": "项目元数据",
+                "nodeIcon": "📋",
+                "nodeData": {
+                  "metadataType": "PROJECT_METADATA",
+                  "metadataId": "metadata_ecommerce_001"
+                },
+                "children": [
+                  {
+                    "nodeId": "project_identity",
+                    "nodeType": "PROJECT_IDENTITY",
+                    "nodeName": "项目标识",
+                    "nodeIcon": "🏷️",
+                    "nodeData": {
+                      "identityType": "PROJECT_IDENTITY",
+                      "identityId": "identity_ecommerce_001"
+                    }
+                  },
+                  {
+                    "nodeId": "stakeholders",
+                    "nodeType": "STAKEHOLDERS",
+                    "nodeName": "利益相关者",
+                    "nodeIcon": "👥",
+                    "nodeData": {
+                      "stakeholderType": "STAKEHOLDERS",
+                      "stakeholderId": "stakeholder_ecommerce_001"
+                    }
+                  },
+                  {
+                    "nodeId": "business_goals",
+                    "nodeType": "BUSINESS_GOALS",
+                    "nodeName": "业务目标",
+                    "nodeIcon": "🎯",
+                    "nodeData": {
+                      "goalType": "BUSINESS_GOALS",
+                      "goalId": "goal_ecommerce_001"
+                    }
+                  },
+                  {
+                    "nodeId": "metrics",
+                    "nodeType": "METRICS",
+                    "nodeName": "度量指标",
+                    "nodeIcon": "📊",
+                    "nodeData": {
+                      "metricType": "METRICS",
+                      "metricId": "metric_ecommerce_001"
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeId": "project_domain",
+                "nodeType": "PROJECT_DOMAIN",
+                "nodeName": "项目领域",
+                "nodeIcon": "🧠",
+                "nodeData": {
+                  "domainType": "PROJECT_DOMAIN",
+                  "domainId": "domain_ecommerce_001"
+                },
+                "children": [
+                  {
+                    "nodeId": "ubiquitous_language",
+                    "nodeType": "UBIQUITOUS_LANGUAGE",
+                    "nodeName": "统一语言",
+                    "nodeIcon": "📚",
+                    "nodeData": {
+                      "languageType": "UBIQUITOUS_LANGUAGE",
+                      "languageId": "language_ecommerce_001"
+                    }
+                  },
+                  {
+                    "nodeId": "subdomains",
+                    "nodeType": "SUBDOMAINS",
+                    "nodeName": "子域",
+                    "nodeIcon": "🎯",
+                    "nodeData": {
+                      "subdomainType": "SUBDOMAINS",
+                      "subdomainId": "subdomain_ecommerce_001"
+                    },
+                    "children": [
+                      {
+                        "nodeId": "user_management_subdomain",
+                        "nodeType": "SUBDOMAIN",
+                        "nodeName": "用户管理子域",
+                        "nodeIcon": "👤",
+                        "nodeData": {
+                          "subdomainId": "subdomain_user_management",
+                          "subdomainName": "用户管理子域",
+                          "subdomainType": "CORE"
+                        },
+                        "children": [
+                          {
+                            "nodeId": "user_aggregates",
+                            "nodeType": "AGGREGATES",
+                            "nodeName": "聚合",
+                            "nodeIcon": "📦",
+                            "nodeData": {
+                              "aggregateType": "AGGREGATES",
+                              "aggregateId": "aggregate_user_001"
+                            },
+                            "children": [
+                              {
+                                "nodeId": "user_aggregate",
+                                "nodeType": "AGGREGATE",
+                                "nodeName": "用户聚合",
+                                "nodeIcon": "👤",
+                                "nodeData": {
+                                  "aggregateId": "aggregate_user",
+                                  "aggregateName": "用户聚合",
+                                  "aggregateRoot": "User"
+                                },
+                                "children": [
+                                  {
+                                    "nodeId": "user_aggregate_root",
+                                    "nodeType": "AGGREGATE_ROOT",
+                                    "nodeName": "聚合根: 用户",
+                                    "nodeIcon": "👤",
+                                    "nodeData": {
+                                      "rootId": "user_root",
+                                      "rootName": "用户",
+                                      "rootType": "AGGREGATE_ROOT"
+                                    }
+                                  },
+                                  {
+                                    "nodeId": "user_profile_entity",
+                                    "nodeType": "ENTITY",
+                                    "nodeName": "实体: 用户档案",
+                                    "nodeIcon": "📄",
+                                    "nodeData": {
+                                      "entityId": "user_profile",
+                                      "entityName": "用户档案",
+                                      "entityType": "ENTITY"
+                                    }
+                                  },
+                                  {
+                                    "nodeId": "user_address_entity",
+                                    "nodeType": "ENTITY",
+                                    "nodeName": "实体: 用户地址",
+                                    "nodeIcon": "📍",
+                                    "nodeData": {
+                                      "entityId": "user_address",
+                                      "entityName": "用户地址",
+                                      "entityType": "ENTITY"
+                                    }
+                                  },
+                                  {
+                                    "nodeId": "user_status_value_object",
+                                    "nodeType": "VALUE_OBJECT",
+                                    "nodeName": "值对象: 用户状态",
+                                    "nodeIcon": "⚙️",
+                                    "nodeData": {
+                                      "valueObjectId": "user_status",
+                                      "valueObjectName": "用户状态",
+                                      "valueObjectType": "VALUE_OBJECT"
+                                    }
+                                  },
+                                  {
+                                    "nodeId": "user_validation_service",
+                                    "nodeType": "DOMAIN_SERVICE",
+                                    "nodeName": "领域服务: 用户验证服务",
+                                    "nodeIcon": "🛠️",
+                                    "nodeData": {
+                                      "serviceId": "user_validation_service",
+                                      "serviceName": "用户验证服务",
+                                      "serviceType": "DOMAIN_SERVICE"
+                                    }
+                                  },
+                                  {
+                                    "nodeId": "user_registered_event",
+                                    "nodeType": "DOMAIN_EVENT",
+                                    "nodeName": "领域事件: 用户已注册事件",
+                                    "nodeIcon": "📨",
+                                    "nodeData": {
+                                      "eventId": "user_registered_event",
+                                      "eventName": "用户已注册事件",
+                                      "eventType": "DOMAIN_EVENT"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "nodeId": "role_aggregate",
+                                "nodeType": "AGGREGATE",
+                                "nodeName": "角色聚合",
+                                "nodeIcon": "🎭",
+                                "nodeData": {
+                                  "aggregateId": "aggregate_role",
+                                  "aggregateName": "角色聚合",
+                                  "aggregateRoot": "Role"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "nodeId": "user_domain_events",
+                            "nodeType": "DOMAIN_EVENTS",
+                            "nodeName": "领域事件",
+                            "nodeIcon": "📨",
+                            "nodeData": {
+                              "eventType": "DOMAIN_EVENTS",
+                              "eventId": "event_user_001"
+                            }
+                          },
+                          {
+                            "nodeId": "user_domain_services",
+                            "nodeType": "DOMAIN_SERVICES",
+                            "nodeName": "领域服务",
+                            "nodeIcon": "🛠️",
+                            "nodeData": {
+                              "serviceType": "DOMAIN_SERVICES",
+                              "serviceId": "service_user_001"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "nodeId": "order_management_subdomain",
+                        "nodeType": "SUBDOMAIN",
+                        "nodeName": "订单管理子域",
+                        "nodeIcon": "📦",
+                        "nodeData": {
+                          "subdomainId": "subdomain_order_management",
+                          "subdomainName": "订单管理子域",
+                          "subdomainType": "CORE"
+                        },
+                        "children": [
+                          {
+                            "nodeId": "order_aggregates",
+                            "nodeType": "AGGREGATES",
+                            "nodeName": "聚合",
+                            "nodeIcon": "📦",
+                            "nodeData": {
+                              "aggregateType": "AGGREGATES",
+                              "aggregateId": "aggregate_order_001"
+                            },
+                            "children": [
+                              {
+                                "nodeId": "order_aggregate",
+                                "nodeType": "AGGREGATE",
+                                "nodeName": "订单聚合",
+                                "nodeIcon": "📦",
+                                "nodeData": {
+                                  "aggregateId": "aggregate_order",
+                                  "aggregateName": "订单聚合",
+                                  "aggregateRoot": "Order"
+                                },
+                                "children": [
+                                  {
+                                    "nodeId": "order_aggregate_root",
+                                    "nodeType": "AGGREGATE_ROOT",
+                                    "nodeName": "聚合根: 订单",
+                                    "nodeIcon": "📦",
+                                    "nodeData": {
+                                      "rootId": "order_root",
+                                      "rootName": "订单",
+                                      "rootType": "AGGREGATE_ROOT"
+                                    }
+                                  },
+                                  {
+                                    "nodeId": "order_item_entity",
+                                    "nodeType": "ENTITY",
+                                    "nodeName": "实体: 订单项",
+                                    "nodeIcon": "📄",
+                                    "nodeData": {
+                                      "entityId": "order_item",
+                                      "entityName": "订单项",
+                                      "entityType": "ENTITY"
+                                    }
+                                  },
+                                  {
+                                    "nodeId": "order_status_history_entity",
+                                    "nodeType": "ENTITY",
+                                    "nodeName": "实体: 订单状态历史",
+                                    "nodeIcon": "📄",
+                                    "nodeData": {
+                                      "entityId": "order_status_history",
+                                      "entityName": "订单状态历史",
+                                      "entityType": "ENTITY"
+                                    }
+                                  },
+                                  {
+                                    "nodeId": "order_status_value_object",
+                                    "nodeType": "VALUE_OBJECT",
+                                    "nodeName": "值对象: 订单状态",
+                                    "nodeIcon": "⚙️",
+                                    "nodeData": {
+                                      "valueObjectId": "order_status",
+                                      "valueObjectName": "订单状态",
+                                      "valueObjectType": "VALUE_OBJECT"
+                                    }
+                                  },
+                                  {
+                                    "nodeId": "order_amount_value_object",
+                                    "nodeType": "VALUE_OBJECT",
+                                    "nodeName": "值对象: 订单金额",
+                                    "nodeIcon": "⚙️",
+                                    "nodeData": {
+                                      "valueObjectId": "order_amount",
+                                      "valueObjectName": "订单金额",
+                                      "valueObjectType": "VALUE_OBJECT"
+                                    }
+                                  },
+                                  {
+                                    "nodeId": "order_calculation_service",
+                                    "nodeType": "DOMAIN_SERVICE",
+                                    "nodeName": "领域服务: 订单计算服务",
+                                    "nodeIcon": "🛠️",
+                                    "nodeData": {
+                                      "serviceId": "order_calculation_service",
+                                      "serviceName": "订单计算服务",
+                                      "serviceType": "DOMAIN_SERVICE"
+                                    }
+                                  },
+                                  {
+                                    "nodeId": "order_created_event",
+                                    "nodeType": "DOMAIN_EVENT",
+                                    "nodeName": "领域事件: 订单已创建事件",
+                                    "nodeIcon": "📨",
+                                    "nodeData": {
+                                      "eventId": "order_created_event",
+                                      "eventName": "订单已创建事件",
+                                      "eventType": "DOMAIN_EVENT"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "nodeId": "shopping_cart_aggregate",
+                                "nodeType": "AGGREGATE",
+                                "nodeName": "购物车聚合",
+                                "nodeIcon": "🛒",
+                                "nodeData": {
+                                  "aggregateId": "aggregate_shopping_cart",
+                                  "aggregateName": "购物车聚合",
+                                  "aggregateRoot": "ShoppingCart"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "nodeId": "order_domain_events",
+                            "nodeType": "DOMAIN_EVENTS",
+                            "nodeName": "领域事件",
+                            "nodeIcon": "📨",
+                            "nodeData": {
+                              "eventType": "DOMAIN_EVENTS",
+                              "eventId": "event_order_001"
+                            }
+                          },
+                          {
+                            "nodeId": "order_domain_services",
+                            "nodeType": "DOMAIN_SERVICES",
+                            "nodeName": "领域服务",
+                            "nodeIcon": "🛠️",
+                            "nodeData": {
+                              "serviceType": "DOMAIN_SERVICES",
+                              "serviceId": "service_order_001"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "nodeId": "domain_events",
+                    "nodeType": "DOMAIN_EVENTS",
+                    "nodeName": "领域事件",
+                    "nodeIcon": "📨",
+                    "nodeData": {
+                      "eventType": "DOMAIN_EVENTS",
+                      "eventId": "event_domain_001"
+                    }
+                  },
+                  {
+                    "nodeId": "domain_services",
+                    "nodeType": "DOMAIN_SERVICES",
+                    "nodeName": "领域服务",
+                    "nodeIcon": "🛠️",
+                    "nodeData": {
+                      "serviceType": "DOMAIN_SERVICES",
+                      "serviceId": "service_domain_001"
+                    }
+                  },
+                  {
+                    "nodeId": "bounded_contexts",
+                    "nodeType": "BOUNDED_CONTEXTS",
+                    "nodeName": "限界上下文",
+                    "nodeIcon": "🏢",
+                    "nodeData": {
+                      "contextType": "BOUNDED_CONTEXTS",
+                      "contextId": "context_001"
+                    }
+                  },
+                  {
+                    "nodeId": "context_mappings",
+                    "nodeType": "CONTEXT_MAPPINGS",
+                    "nodeName": "限界上下文映射",
+                    "nodeIcon": "🔗",
+                    "nodeData": {
+                      "mappingType": "CONTEXT_MAPPINGS",
+                      "mappingId": "mapping_001"
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeId": "communication_layer",
+                "nodeType": "COMMUNICATION_LAYER",
+                "nodeName": "通信层",
+                "nodeIcon": "🌐",
+                "nodeData": {
+                  "layerType": "COMMUNICATION_LAYER",
+                  "layerId": "layer_communication_001"
+                }
+              },
+              {
+                "nodeId": "interface_layer",
+                "nodeType": "INTERFACE_LAYER",
+                "nodeName": "界面层",
+                "nodeIcon": "🖥️",
+                "nodeData": {
+                  "layerType": "INTERFACE_LAYER",
+                  "layerId": "layer_interface_001"
+                }
+              },
+              {
+                "nodeId": "implementation_mapping_layer",
+                "nodeType": "IMPLEMENTATION_MAPPING_LAYER",
+                "nodeName": "实现映射层",
+                "nodeIcon": "🔧",
+                "nodeData": {
+                  "layerType": "IMPLEMENTATION_MAPPING_LAYER",
+                  "layerId": "layer_implementation_001"
+                }
+              },
+              {
+                "nodeId": "validation_layer",
+                "nodeType": "VALIDATION_LAYER",
+                "nodeName": "验证层",
+                "nodeIcon": "✅",
+                "nodeData": {
+                  "layerType": "VALIDATION_LAYER",
+                  "layerId": "layer_validation_001"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "nodeTypes": [
+        {
+          "typeId": "PLATFORM_ROOT",
+          "typeName": "平台根节点",
+          "typeIcon": "🏗️",
+          "typeColor": "#1890ff",
+          "typeStyle": {
+            "fontWeight": "bold",
+            "fontSize": "16px"
+          }
+        },
+        {
+          "typeId": "PROJECT",
+          "typeName": "项目",
+          "typeIcon": "📁",
+          "typeColor": "#52c41a",
+          "typeStyle": {
+            "fontWeight": "600",
+            "fontSize": "14px"
+          }
+        },
+        {
+          "typeId": "PROJECT_METADATA",
+          "typeName": "项目元数据",
+          "typeIcon": "📋",
+          "typeColor": "#722ed1",
+          "typeStyle": {
+            "fontSize": "13px"
+          }
+        },
+        {
+          "typeId": "PROJECT_DOMAIN",
+          "typeName": "项目领域",
+          "typeIcon": "🧠",
+          "typeColor": "#fa541c",
+          "typeStyle": {
+            "fontSize": "13px"
+          }
+        },
+        {
+          "typeId": "SUBDOMAIN",
+          "typeName": "子域",
+          "typeIcon": "🎯",
+          "typeColor": "#13c2c2",
+          "typeStyle": {
+            "fontSize": "12px"
+          }
+        },
+        {
+          "typeId": "AGGREGATE",
+          "typeName": "聚合",
+          "typeIcon": "📦",
+          "typeColor": "#eb2f96",
+          "typeStyle": {
+            "fontSize": "12px"
+          }
+        },
+        {
+          "typeId": "AGGREGATE_ROOT",
+          "typeName": "聚合根",
+          "typeIcon": "👤",
+          "typeColor": "#f5222d",
+          "typeStyle": {
+            "fontSize": "11px"
+          }
+        },
+        {
+          "typeId": "ENTITY",
+          "typeName": "实体",
+          "typeIcon": "📄",
+          "typeColor": "#fa8c16",
+          "typeStyle": {
+            "fontSize": "11px"
+          }
+        },
+        {
+          "typeId": "VALUE_OBJECT",
+          "typeName": "值对象",
+          "typeIcon": "⚙️",
+          "typeColor": "#52c41a",
+          "typeStyle": {
+            "fontSize": "11px"
+          }
+        },
+        {
+          "typeId": "DOMAIN_SERVICE",
+          "typeName": "领域服务",
+          "typeIcon": "🛠️",
+          "typeColor": "#1890ff",
+          "typeStyle": {
+            "fontSize": "11px"
+          }
+        },
+        {
+          "typeId": "DOMAIN_EVENT",
+          "typeName": "领域事件",
+          "typeIcon": "📨",
+          "typeColor": "#722ed1",
+          "typeStyle": {
+            "fontSize": "11px"
+          }
+        }
+      ],
+      "nodeActions": [
+        {
+          "actionId": "view_details",
+          "actionName": "查看详情",
+          "actionType": "MODAL",
+          "actionConfig": {
+            "modalType": "DETAIL_MODAL",
+            "modalTitle": "查看详情",
+            "modalSize": "large"
+          },
+          "actionIcon": "👁️",
+          "actionPermissions": ["READ"]
+        },
+        {
+          "actionId": "edit_node",
+          "actionName": "编辑",
+          "actionType": "MODAL",
+          "actionConfig": {
+            "modalType": "EDIT_MODAL",
+            "modalTitle": "编辑节点",
+            "modalSize": "large"
+          },
+          "actionIcon": "✏️",
+          "actionPermissions": ["WRITE"]
+        },
+        {
+          "actionId": "delete_node",
+          "actionName": "删除",
+          "actionType": "API_CALL",
+          "actionConfig": {
+            "apiEndpoint": "/api/navigation-tree/delete",
+            "method": "DELETE",
+            "confirmMessage": "确定要删除这个节点吗？"
+          },
+          "actionIcon": "🗑️",
+          "actionPermissions": ["DELETE"]
+        },
+        {
+          "actionId": "add_child",
+          "actionName": "添加子节点",
+          "actionType": "MODAL",
+          "actionConfig": {
+            "modalType": "ADD_CHILD_MODAL",
+            "modalTitle": "添加子节点",
+            "modalSize": "medium"
+          },
+          "actionIcon": "➕",
+          "actionPermissions": ["WRITE"]
+        }
+      ]
+    },
+    "dataSource": {
+      "sourceType": "API",
+      "apiEndpoint": "/api/navigation-tree/data",
+      "queryParams": {
+        "projectId": "${projectId}",
+        "domainId": "${domainId}"
+      },
+      "dataMapping": {
+        "nodeId": "id",
+        "nodeName": "name",
+        "nodeType": "type",
+        "nodeIcon": "icon",
+        "nodeData": "data",
+        "children": "children"
+      }
+    },
+    "interactionConfig": {
+      "expandable": true,
+      "selectable": true,
+      "draggable": false,
+      "searchable": true,
+      "filterable": true
+    }
+  },
+  "amisConfiguration": {
+    "componentType": "tree",
+    "componentConfig": {
+      "type": "tree",
+      "title": "DDD元数据驱动开发平台导航树",
+      "data": {
+        "source": "${navigationTreeData}"
+      },
+      "options": {
+        "multiple": false,
+        "cascade": true,
+        "withChildren": true,
+        "onlyChildren": false,
+        "onlyLeaf": false,
+        "hideRoot": false,
+        "showRoot": true,
+        "showIcon": true,
+        "showLine": true,
+        "expandAll": false,
+        "expandLevel": 2,
+        "searchable": true,
+        "filterable": true,
+        "draggable": false,
+        "selectable": true,
+        "checkable": false,
+        "checkStrictly": false,
+        "defaultExpandAll": false,
+        "defaultExpandedKeys": ["root_ddd_platform", "project_ecommerce"],
+        "defaultSelectedKeys": [],
+        "defaultCheckedKeys": [],
+        "nodeKey": "nodeId",
+        "labelKey": "nodeName",
+        "childrenKey": "children",
+        "iconKey": "nodeIcon",
+        "typeKey": "nodeType",
+        "dataKey": "nodeData",
+        "actionsKey": "actions",
+        "metadataKey": "metadata"
+      },
+      "style": {
+        "maxHeight": "600px",
+        "overflow": "auto",
+        "border": "1px solid #d9d9d9",
+        "borderRadius": "4px",
+        "backgroundColor": "#ffffff"
+      },
+      "className": "navigation-tree",
+      "itemClassName": "navigation-tree-item",
+      "itemStyle": {
+        "padding": "8px 12px",
+        "margin": "2px 0",
+        "borderRadius": "4px",
+        "transition": "all 0.3s ease"
+      },
+      "itemHoverStyle": {
+        "backgroundColor": "#f5f5f5",
+        "cursor": "pointer"
+      },
+      "itemSelectedStyle": {
+        "backgroundColor": "#e6f7ff",
+        "borderLeft": "3px solid #1890ff"
+      },
+      "itemExpandedStyle": {
+        "backgroundColor": "#f0f9ff"
+      },
+      "itemCollapsedStyle": {
+        "backgroundColor": "#ffffff"
+      },
+      "iconStyle": {
+        "marginRight": "8px",
+        "fontSize": "14px"
+      },
+      "labelStyle": {
+        "fontSize": "13px",
+        "color": "#333333",
+        "fontWeight": "normal"
+      },
+      "typeStyle": {
+        "PLATFORM_ROOT": {
+          "fontWeight": "bold",
+          "fontSize": "16px",
+          "color": "#1890ff"
+        },
+        "PROJECT": {
+          "fontWeight": "600",
+          "fontSize": "14px",
+          "color": "#52c41a"
+        },
+        "PROJECT_METADATA": {
+          "fontSize": "13px",
+          "color": "#722ed1"
+        },
+        "PROJECT_DOMAIN": {
+          "fontSize": "13px",
+          "color": "#fa541c"
+        },
+        "SUBDOMAIN": {
+          "fontSize": "12px",
+          "color": "#13c2c2"
+        },
+        "AGGREGATE": {
+          "fontSize": "12px",
+          "color": "#eb2f96"
+        },
+        "AGGREGATE_ROOT": {
+          "fontSize": "11px",
+          "color": "#f5222d"
+        },
+        "ENTITY": {
+          "fontSize": "11px",
+          "color": "#fa8c16"
+        },
+        "VALUE_OBJECT": {
+          "fontSize": "11px",
+          "color": "#52c41a"
+        },
+        "DOMAIN_SERVICE": {
+          "fontSize": "11px",
+          "color": "#1890ff"
+        },
+        "DOMAIN_EVENT": {
+          "fontSize": "11px",
+          "color": "#722ed1"
+        }
+      },
+      "actions": [
+        {
+          "type": "button",
+          "label": "查看详情",
+          "icon": "fa fa-eye",
+          "level": "link",
+          "size": "sm",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "dialog",
+                  "dialog": {
+                    "title": "查看详情",
+                    "body": {
+                      "type": "form",
+                      "body": [
+                        {
+                          "type": "static",
+                          "name": "nodeId",
+                          "label": "节点ID"
+                        },
+                        {
+                          "type": "static",
+                          "name": "nodeName",
+                          "label": "节点名称"
+                        },
+                        {
+                          "type": "static",
+                          "name": "nodeType",
+                          "label": "节点类型"
+                        },
+                        {
+                          "type": "json",
+                          "name": "nodeData",
+                          "label": "节点数据"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "button",
+          "label": "编辑",
+          "icon": "fa fa-edit",
+          "level": "link",
+          "size": "sm",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "dialog",
+                  "dialog": {
+                    "title": "编辑节点",
+                    "body": {
+                      "type": "form",
+                      "api": "/api/navigation-tree/update",
+                      "body": [
+                        {
+                          "type": "hidden",
+                          "name": "nodeId"
+                        },
+                        {
+                          "type": "input-text",
+                          "name": "nodeName",
+                          "label": "节点名称",
+                          "required": true
+                        },
+                        {
+                          "type": "select",
+                          "name": "nodeType",
+                          "label": "节点类型",
+                          "options": [
+                            {"label": "项目", "value": "PROJECT"},
+                            {"label": "子域", "value": "SUBDOMAIN"},
+                            {"label": "聚合", "value": "AGGREGATE"},
+                            {"label": "实体", "value": "ENTITY"},
+                            {"label": "值对象", "value": "VALUE_OBJECT"},
+                            {"label": "领域服务", "value": "DOMAIN_SERVICE"},
+                            {"label": "领域事件", "value": "DOMAIN_EVENT"}
+                          ],
+                          "required": true
+                        },
+                        {
+                          "type": "input-text",
+                          "name": "nodeIcon",
+                          "label": "节点图标"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "button",
+          "label": "删除",
+          "icon": "fa fa-trash",
+          "level": "link",
+          "size": "sm",
+          "confirmText": "确定要删除这个节点吗？",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "ajax",
+                  "api": {
+                    "url": "/api/navigation-tree/delete",
+                    "method": "DELETE",
+                    "data": {
+                      "nodeId": "${nodeId}"
+                    }
+                  }
+                },
+                {
+                  "actionType": "reload",
+                  "target": "navigation-tree"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "onEvent": {
+        "change": {
+          "actions": [
+            {
+              "actionType": "setValue",
+              "componentId": "selected-node-info",
+              "args": {
+                "value": "${event.data.value}"
+              }
+            }
+          ]
+        },
+        "expand": {
+          "actions": [
+            {
+              "actionType": "setValue",
+              "componentId": "expanded-nodes",
+              "args": {
+                "value": "${event.data.expandedKeys}"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "themeConfig": {
+      "primaryColor": "#1890ff",
+      "successColor": "#52c41a",
+      "warningColor": "#faad14",
+      "dangerColor": "#f5222d",
+      "infoColor": "#13c2c2",
+      "textColor": "#333333",
+      "borderColor": "#d9d9d9",
+      "backgroundColor": "#ffffff",
+      "hoverColor": "#f5f5f5",
+      "selectedColor": "#e6f7ff"
+    },
+    "eventHandlers": [
+      {
+        "eventType": "nodeClick",
+        "handlerType": "NAVIGATION",
+        "handlerConfig": {
+          "navigationType": "ROUTE",
+          "routePath": "/ddd-platform/${nodeType}/${nodeId}",
+          "routeParams": {
+            "nodeId": "${nodeId}",
+            "nodeType": "${nodeType}",
+            "nodeData": "${nodeData}"
+          }
+        }
+      },
+      {
+        "eventType": "nodeExpand",
+        "handlerType": "API_CALL",
+        "handlerConfig": {
+          "apiEndpoint": "/api/navigation-tree/expand",
+          "method": "POST",
+          "requestData": {
+            "nodeId": "${nodeId}",
+            "expanded": true
+          }
+        }
+      },
+      {
+        "eventType": "nodeCollapse",
+        "handlerType": "API_CALL",
+        "handlerConfig": {
+          "apiEndpoint": "/api/navigation-tree/collapse",
+          "method": "POST",
+          "requestData": {
+            "nodeId": "${nodeId}",
+            "expanded": false
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/ddd-metamodel/navigation-tree-screen-definition.json",
+  "title": "导航树屏幕定义",
+  "description": "DDD元数据驱动开发平台的导航树屏幕定义",
+  "version": "1.0.0",
+  "type": "object",
+  "properties": {
+    "screenMetadata": {
+      "type": "object",
+      "properties": {
+        "screenId": {
+          "type": "string",
+          "pattern": "^screen_navigation_tree_[a-zA-Z0-9_]+$",
+          "description": "屏幕ID"
+        },
+        "screenName": {
+          "type": "string",
+          "description": "屏幕名称"
+        },
+        "screenType": {
+          "type": "string",
+          "enum": ["NAVIGATION_TREE", "DYNAMIC_TREE", "HIERARCHICAL_NAVIGATION"],
+          "description": "屏幕类型"
+        },
+        "domainId": {
+          "type": "string",
+          "description": "所属领域ID"
+        },
+        "boundedContextId": {
+          "type": "string",
+          "description": "所属限界上下文ID"
+        }
+      },
+      "required": ["screenId", "screenName", "screenType"]
+    },
+    "navigationTreeConfig": {
+      "type": "object",
+      "properties": {
+        "treeStructure": {
+          "type": "object",
+          "properties": {
+            "rootNode": {
+              "$ref": "#/$defs/TreeNode"
+            },
+            "nodeTypes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/NodeType"
+              },
+              "description": "节点类型定义"
+            },
+            "nodeIcons": {
+              "type": "object",
+              "description": "节点图标映射"
+            },
+            "nodeActions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/NodeAction"
+              },
+              "description": "节点操作定义"
+            }
+          },
+          "required": ["rootNode", "nodeTypes"]
+        },
+        "dataSource": {
+          "type": "object",
+          "properties": {
+            "sourceType": {
+              "type": "string",
+              "enum": ["API", "STATIC_DATA", "DYNAMIC_QUERY"],
+              "description": "数据源类型"
+            },
+            "apiEndpoint": {
+              "type": "string",
+              "description": "API端点"
+            },
+            "queryParams": {
+              "type": "object",
+              "description": "查询参数"
+            },
+            "dataMapping": {
+              "type": "object",
+              "description": "数据映射规则"
+            }
+          },
+          "required": ["sourceType"]
+        },
+        "interactionConfig": {
+          "type": "object",
+          "properties": {
+            "expandable": {
+              "type": "boolean",
+              "description": "是否可展开"
+            },
+            "selectable": {
+              "type": "boolean",
+              "description": "是否可选择"
+            },
+            "draggable": {
+              "type": "boolean",
+              "description": "是否可拖拽"
+            },
+            "searchable": {
+              "type": "boolean",
+              "description": "是否可搜索"
+            },
+            "filterable": {
+              "type": "boolean",
+              "description": "是否可过滤"
+            }
+          }
+        }
+      },
+      "required": ["treeStructure", "dataSource"]
+    },
+    "amisConfiguration": {
+      "type": "object",
+      "properties": {
+        "componentType": {
+          "type": "string",
+          "enum": ["tree", "nav", "tabs", "menu"],
+          "description": "amis组件类型"
+        },
+        "componentConfig": {
+          "type": "object",
+          "description": "amis组件配置"
+        },
+        "themeConfig": {
+          "type": "object",
+          "description": "主题配置"
+        },
+        "eventHandlers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EventHandler"
+          },
+          "description": "事件处理器"
+        }
+      },
+      "required": ["componentType", "componentConfig"]
+    }
+  },
+  "required": ["screenMetadata", "navigationTreeConfig", "amisConfiguration"],
+  "$defs": {
+    "TreeNode": {
+      "type": "object",
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "description": "节点ID"
+        },
+        "nodeType": {
+          "type": "string",
+          "description": "节点类型"
+        },
+        "nodeName": {
+          "type": "string",
+          "description": "节点名称"
+        },
+        "nodeIcon": {
+          "type": "string",
+          "description": "节点图标"
+        },
+        "nodeData": {
+          "type": "object",
+          "description": "节点数据"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TreeNode"
+          },
+          "description": "子节点"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NodeAction"
+          },
+          "description": "节点操作"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "节点元数据"
+        }
+      },
+      "required": ["nodeId", "nodeType", "nodeName"]
+    },
+    "NodeType": {
+      "type": "object",
+      "properties": {
+        "typeId": {
+          "type": "string",
+          "description": "类型ID"
+        },
+        "typeName": {
+          "type": "string",
+          "description": "类型名称"
+        },
+        "typeIcon": {
+          "type": "string",
+          "description": "类型图标"
+        },
+        "typeColor": {
+          "type": "string",
+          "description": "类型颜色"
+        },
+        "typeStyle": {
+          "type": "object",
+          "description": "类型样式"
+        },
+        "typeActions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/NodeAction"
+          },
+          "description": "类型操作"
+        }
+      },
+      "required": ["typeId", "typeName"]
+    },
+    "NodeAction": {
+      "type": "object",
+      "properties": {
+        "actionId": {
+          "type": "string",
+          "description": "操作ID"
+        },
+        "actionName": {
+          "type": "string",
+          "description": "操作名称"
+        },
+        "actionType": {
+          "type": "string",
+          "enum": ["NAVIGATE", "MODAL", "API_CALL", "CUSTOM"],
+          "description": "操作类型"
+        },
+        "actionConfig": {
+          "type": "object",
+          "description": "操作配置"
+        },
+        "actionIcon": {
+          "type": "string",
+          "description": "操作图标"
+        },
+        "actionPermissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "操作权限"
+        }
+      },
+      "required": ["actionId", "actionName", "actionType"]
+    },
+    "EventHandler": {
+      "type": "object",
+      "properties": {
+        "eventType": {
+          "type": "string",
+          "description": "事件类型"
+        },
+        "handlerType": {
+          "type": "string",
+          "enum": ["API_CALL", "NAVIGATION", "MODAL", "CUSTOM"],
+          "description": "处理器类型"
+        },
+        "handlerConfig": {
+          "type": "object",
+          "description": "处理器配置"
+        },
+        "handlerScript": {
+          "type": "string",
+          "description": "处理器脚本"
+        }
+      },
+      "required": ["eventType", "handlerType"]
+    }
+  }
+}
